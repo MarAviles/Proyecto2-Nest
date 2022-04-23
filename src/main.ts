@@ -8,9 +8,12 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({
     transform: true,
     whitelist: true,
-    forbidNonWhitelisted: true, //ignorar qu
+    forbidNonWhitelisted: true,
+    transformOptions: {
+      enableImplicitConversion: true
+    }
   }));
 
-  await app.listen(3000);
+  await app.listen(AppModule.port);
 }
 bootstrap();
